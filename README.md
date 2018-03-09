@@ -14,6 +14,7 @@ SimpleMFRC522 - like MFRC522, we will not change it.
 SimpleMFRC522.pyc - like MFRC522.pyc, we will not change it.
 switch_tester_relay_rfid.py - this is the working file for how I (Adam) want the final puzzle to work. We'll need to add in support of 5 switches, but it has the basic while loop structure correct. 
 Write_RFID_example.py - this is an example of how to write to a card. Most likely we will not ever have to use this code because we will use the RFID card's specific ID as the "Password" mechanism.
+raspberry-pi-pinout - this is a handy tool to see what the pin numbers are for the Pi's GPIO, and what pins you can use for what purpose.
 
 Note: all these files must be run in Python 2.7. They will not run in Python 3.
 
