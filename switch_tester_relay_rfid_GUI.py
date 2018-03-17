@@ -6,6 +6,8 @@ import RPi.GPIO as GPIO
 import time
 import SimpleMFRC522
 from tkinter import *
+#instead of tkinter, this should probably be Tkinter? This is specifically for Python 2.7
+#https://www.pythoncentral.io/introduction-to-pythons-tkinter/
 import pygame
 from functools import partial
 
