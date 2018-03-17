@@ -1,3 +1,7 @@
+#!/usr/bin/env python 2.7
+
+#Not sure if the "python 2.7" works, but we need to designate that it needs to open in python version 2.7 esp if it's opening it at startup.
+
 import RPi.GPIO as GPIO
 import time
 import SimpleMFRC522
