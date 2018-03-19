@@ -23,6 +23,8 @@ reader = SimpleMFRC522.SimpleMFRC522()
 #unlockcode = "bastet_unlock"
 loop = '1'
 button1 = GPIO.input(23)
+GPIO.output(2, GPIO.LOW)
+GPIO.output(3, GPIO.LOW)
 
 while True:
     while loop == '1':
@@ -41,7 +43,7 @@ while True:
             #sound happens for the unlocking of the alter - will send to you
             time.sleep(1)
             loop = '2'
-            
+            print('phase 2')
 
     #here's when we would ask for a signal from the button to detect if the staff has been inserted
     while loop == '2':
@@ -49,7 +51,6 @@ while True:
         input_two = GPIO.input(17)
         input_three = GPIO.input(27)
         input_four = GPIO.input(22)
-        print('waiting for button') #this can be taken out in final code, just checking to see if it was progressing on
         time.sleep(.5)
         #if button1 == False:
         if input_one == False:
@@ -59,6 +60,7 @@ while True:
             print('2nd maglock unlocked')
             time.sleep(1)
             loop = '3'
+            print('phase 3')
         if input_two == False:
             #error music plays
             print('WRONG BUTTON. PRESSED 2')
@@ -88,5 +90,5 @@ while True:
             print('2nd maglock in lock position')
             
             loop = '1'
-            
+            print('phase 1')
     #GPIO.cleanup()
