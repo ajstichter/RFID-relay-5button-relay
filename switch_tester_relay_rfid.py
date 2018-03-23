@@ -23,8 +23,10 @@ reader = SimpleMFRC522.SimpleMFRC522()
 #unlockcode = "bastet_unlock"
 loop = '1'
 button1 = GPIO.input(23)
-GPIO.output(2, GPIO.LOW)
-GPIO.output(3, GPIO.LOW)
+GPIO.output(2, GPIO.HIGH)
+GPIO.output(3, GPIO.HIGH)
+
+print('starting program')
 
 while True:
     while loop == '1':
@@ -37,13 +39,12 @@ while True:
         #if text == unlockcode:
             num = '1'
             print('ran id check' + str(num))
-            GPIO.output(2, GPIO.HIGH)
-            print('output to gpio on')
+            GPIO.output(2, GPIO.LOW)
             print('1st maglock unlocked')
             #sound happens for the unlocking of the alter - will send to you
             time.sleep(1)
             loop = '2'
-            print('phase 2')
+            print('starting phase 2')
 
     #here's when we would ask for a signal from the button to detect if the staff has been inserted
     while loop == '2':
@@ -55,23 +56,23 @@ while True:
         #if button1 == False:
         if input_one == False:
             #music plays
-            GPIO.output(3, GPIO.HIGH)
-            print('output to gpio on')
-            print('2nd maglock unlocked')
+            GPIO.output(3, GPIO.LOW)
+            print('RIGHT BUTTON. YOU PRESSED #1')
+			print('2nd maglock unlocked')
             time.sleep(1)
             loop = '3'
-            print('phase 3')
+            print('starting phase 3')
         if input_two == False:
             #error music plays
-            print('WRONG BUTTON. PRESSED 2')
+            print('WRONG BUTTON. YOU PRESSED #2')
             time.sleep(.5)
         if input_three == False:
             #error music plays
-            print('WRONG BUTTON. PRESSED 3')
+            print('WRONG BUTTON. YOU PRESSED #3')
             time.sleep(.5)
         if input_four == False:
             #error music plays
-            print('WRONG BUTTON. PRESSED 4')
+            print('WRONG BUTTON. YOU PRESSED #4')
             time.sleep(.5)
             
 
@@ -81,14 +82,14 @@ while True:
         print(text)
 
         if id == 552222697650:
-            GPIO.output(2, GPIO.LOW)
+            GPIO.output(2, GPIO.HIGH)
             print('output to gpio off')
             print('1st maglock in lock position')
 
-            GPIO.output(3, GPIO.LOW)
+            GPIO.output(3, GPIO.HIGH)
             print('output to gpio off')
             print('2nd maglock in lock position')
             
             loop = '1'
-            print('phase 1')
+            print('starting phase 1')
     #GPIO.cleanup()
