@@ -55,19 +55,26 @@ while True:
 
     #here's when we would ask for a signal from the button to detect if the staff has been inserted
     while loop == '2':
-        input_one = GPIO.input(23)
-        input_two = GPIO.input(17)
-        input_three = GPIO.input(27)
+        input_one = GPIO.input(27)
+		#Leftmost = 1
+		#1=27
+		#2=23
+		#3=17
+		#4=22 - correct
+        input_two = GPIO.input(23)
+        input_three = GPIO.input(17)
         input_four = GPIO.input(22)
         time.sleep(.5)
         #if button1 == False:
-        if input_one == False:
-            #music plays
-            GPIO.output(3, GPIO.LOW)
+        if input_four == False:
+            chime.play()
+			print('music playing')
+			#music plays
+			time.sleep(12.5)
+			GPIO.output(3, GPIO.LOW)
             print('output to gpio on')
             print('2nd maglock unlocked')
-            time.sleep(1)
-            chime.play()
+            time.sleep(1)            
             loop = '3'
             print('phase 3')
         if input_two == False:
@@ -80,9 +87,9 @@ while True:
             print('WRONG BUTTON. You pressed 3')
             failSnd.play()
             time.sleep(.5)
-        if input_four == False:
+        if input_one == False:
             #error music plays
-            print('WRONG BUTTON. You pressed 4')
+            print('WRONG BUTTON. You pressed 1')
             failSnd.play()
             time.sleep(.5)
             
