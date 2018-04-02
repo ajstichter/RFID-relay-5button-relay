@@ -8,7 +8,7 @@ import pygame
 pygame.init()
 pygame.mixer.init()
 chime = pygame.mixer.Sound('put-staff-in-altar_temp.wav')
-failSnd = pygame.mixer.Sound('failure-short_temp.wav')
+failSnd = pygame.mixer.Sound('staff_fail.wav')
 clickSnd = pygame.mixer.Sound('8_button_click_b.wav')
 
 GPIO.setmode(GPIO.BCM)
