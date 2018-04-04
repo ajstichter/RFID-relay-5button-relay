@@ -30,7 +30,7 @@ reader = SimpleMFRC522.SimpleMFRC522()
 
 #unlockcode = "bastet_unlock"
 loop = '1'
-stafflooop = '0'
+staffloop = '0'
 lastbutton = '0'
 button1 = GPIO.input(23)
 GPIO.output(2, GPIO.HIGH)
@@ -59,22 +59,22 @@ while True:
     #here's when we would ask for a signal from the button to detect if the staff has been inserted
     while loop == '2':
         input_one = GPIO.input(27)
-		#Leftmost = 1
-		#1=27
-		#2=23
-		#3=17
-		#4=22 - correct
         input_two = GPIO.input(23)
         input_three = GPIO.input(17)
         input_four = GPIO.input(22)
         time.sleep(.5)
+        #Leftmost = 1
+        #1=27
+        #2=23
+        #3=17
+        #4=22 - correct
         #if button1 == False:
         if input_four == False:
             chime.play()
-			print('music playing')
-			#music plays
-			time.sleep(12.5)
-			GPIO.output(3, GPIO.LOW)
+            print('music playing')
+            #music plays
+            time.sleep(12.5)
+            GPIO.output(3, GPIO.LOW)
             print('output to gpio on')
             print('2nd maglock unlocked')
             time.sleep(1)            
@@ -82,33 +82,36 @@ while True:
             print('phase 3')
         if input_two == False and lastbutton != '2':
             print('WRONG BUTTON. You pressed 2')
-            if staffloop == '1'
-				secondfailSnd.play()
-				loop = '3'
-			if staffloop == '0'
-				failSnd.play()
-				staffloop = '1'
-				lastbutton = '2'
-			time.sleep(.5)
+            if staffloop == '1':
+                secondfailSnd.play()
+                loop = '3'
+                print('progressing to phase 3')
+            if staffloop == '0':
+                failSnd.play()
+                staffloop = '1'
+                lastbutton = '2'
+            time.sleep(.5)
         if input_three == False and lastbutton != '3':
             print('WRONG BUTTON. You pressed 3')
-            if staffloop == '1'
-				secondfailSnd.play()
-				loop = '3'
-			if staffloop == '0'
-				failSnd.play()
-				staffloop = '1'
-				lastbutton = '3'
+            if staffloop == '1':
+                secondfailSnd.play()
+                loop = '3'
+                print('progressing to phase 3')
+            if staffloop == '0':
+                failSnd.play()
+                staffloop = '1'
+                lastbutton = '3'
             time.sleep(.5)
         if input_one == False and lastbutton != '1':
             print('WRONG BUTTON. You pressed 1')
-            if staffloop == '1'
-				secondfailSnd.play()
-				loop = '3'
-			if staffloop == '0'
-				failSnd.play()
-				staffloop = '1'
-				lastbutton = '1'
+            if staffloop == '1':
+                secondfailSnd.play()
+                loop = '3'
+                print('progressing to phase 3')
+            if staffloop == '0':
+                failSnd.play()
+                staffloop = '1'
+                lastbutton = '1'
             time.sleep(.5)
             
 
@@ -134,7 +137,7 @@ while True:
             print('2nd maglock in lock position')
             
             loop = '1'
-			staffloop = '0'
-			lastbutton = '0'
+            staffloop = '0'
+            lastbutton = '0'
             print('phase 1')
-    #GPIO.cleanup()
+#GPIO.cleanup()
