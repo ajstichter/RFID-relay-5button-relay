@@ -8,8 +8,9 @@ import pygame
 pygame.init()
 pygame.mixer.init()
 chime = pygame.mixer.Sound('put-staff-in-altar_temp.wav')
-failSnd = pygame.mixer.Sound('staff_fail.wav')
+failSnd = pygame.mixer.Sound('staff-fail_cat3.wav')
 clickSnd = pygame.mixer.Sound('8_button_click_b.wav')
+secondfailSnd = pygame.mixer.Sound('meow.wav')
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -29,6 +30,8 @@ reader = SimpleMFRC522.SimpleMFRC522()
 
 #unlockcode = "bastet_unlock"
 loop = '1'
+stafflooop = '0'
+lastbutton = '0'
 button1 = GPIO.input(23)
 GPIO.output(2, GPIO.HIGH)
 GPIO.output(3, GPIO.HIGH)
@@ -77,20 +80,35 @@ while True:
             time.sleep(1)            
             loop = '3'
             print('phase 3')
-        if input_two == False:
-            #error music plays
+        if input_two == False and lastbutton != '2':
             print('WRONG BUTTON. You pressed 2')
-            failSnd.play()
-            time.sleep(.5)
-        if input_three == False:
-            #error music plays
+            if staffloop == '1'
+				secondfailSnd.play()
+				loop = '3'
+			if staffloop == '0'
+				failSnd.play()
+				staffloop = '1'
+				lastbutton = '2'
+			time.sleep(.5)
+        if input_three == False and lastbutton != '3':
             print('WRONG BUTTON. You pressed 3')
-            failSnd.play()
+            if staffloop == '1'
+				secondfailSnd.play()
+				loop = '3'
+			if staffloop == '0'
+				failSnd.play()
+				staffloop = '1'
+				lastbutton = '3'
             time.sleep(.5)
-        if input_one == False:
-            #error music plays
+        if input_one == False and lastbutton != '1':
             print('WRONG BUTTON. You pressed 1')
-            failSnd.play()
+            if staffloop == '1'
+				secondfailSnd.play()
+				loop = '3'
+			if staffloop == '0'
+				failSnd.play()
+				staffloop = '1'
+				lastbutton = '1'
             time.sleep(.5)
             
 
@@ -116,5 +134,7 @@ while True:
             print('2nd maglock in lock position')
             
             loop = '1'
+			staffloop = '0'
+			lastbutton = '0'
             print('phase 1')
     #GPIO.cleanup()
