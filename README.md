@@ -1,5 +1,9 @@
 # RFID-relay-5button-relay
 
+Raspberry Pi runs the puzzle.
+Version: a01041; 2 Model B; Q1 2015
+Running Raspbian version: 8 (jessie)
+
 Instructions for how to setup the RFID reader and test it are found here: https://pimylifeup.com/raspberry-pi-rfid-rc522/
 
 This program runs as such:

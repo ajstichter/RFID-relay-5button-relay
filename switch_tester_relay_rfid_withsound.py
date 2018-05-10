@@ -15,8 +15,8 @@ secondfailSnd = pygame.mixer.Sound('meow.wav')
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
+#setup pins for the maglocks
 GPIO.setup(2, GPIO.OUT)
-#setup another pin for the 2nd maglock
 GPIO.setup(3, GPIO.OUT)
 
 #the following GPIO setup is for a button which triggers when the staff is placed in the hole.
@@ -43,7 +43,8 @@ while True:
         print(id)
         print(text)
 
-        if id == 742561995189: #this is the id of the RFID Chip
+        if id == 742561995189 or 777777777777: 
+		#this is the id of the RFID Chip in the first and second (still gonna put it in) statues
         #if text == unlockcode:
             num = '1'
             print('ran id check' + str(num))
@@ -51,12 +52,11 @@ while True:
             print('output to gpio on')
             print('1st maglock unlocked')
             clickSnd.play()
-            #sound happens for the unlocking of the alter - will send to you
             time.sleep(1)
             loop = '2'
             print('phase 2')
 
-    #here's when we would ask for a signal from the button to detect if the staff has been inserted
+    #here's when we ask for a signal from the button to detect if the staff has been inserted
     while loop == '2':
         input_one = GPIO.input(27)
         input_two = GPIO.input(23)
