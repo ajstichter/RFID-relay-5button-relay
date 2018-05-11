@@ -43,7 +43,7 @@ while True:
         print(id)
         print(text)
 
-        if id == 742561995189 or 777777777777: 
+        if id == 742561995189 or id == 907954385802 or id == 24533234571: 
 		#this is the id of the RFID Chip in the first and second (still gonna put it in) statues
         #if text == unlockcode:
             num = '1'
@@ -120,7 +120,7 @@ while True:
         print(id)
         print(text)
 
-        if id == 552222697650:
+        if id == 552222697650 or id == 256092369827:
             clickSnd.play()
             time.sleep(1)
             clickSnd.play()
